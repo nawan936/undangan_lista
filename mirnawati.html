@@ -59,10 +59,10 @@
  <meta property="og:type" content="website" />
 <meta property="og:title" content="Undangan Pernikahan Asrin & Sarlita" />
 <meta property="og:description" content="Dengan memohon rahmat Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami." />
-<meta property="og:image" content="https://nawan936.github.io/undangan_lista/1.jpeg" />
+<meta property="og:image" content="https://nawan936.github.io/undangan_lista/11.jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://nawan936.github.io/undangan_lista/1.png" />
+<meta property="og:url" content="https://nawan936.github.io/undangan_lista/11.jpeg" />
 <meta property="og:site_name" content="Undangan Pernikahan" />
 
 <!-- tambahan -->
@@ -80,9 +80,9 @@
 
 
     <!--====== Favicon Icon ======-->
-<link rel="apple-touch-icon" sizes="180x180" href="1.jpeg">
-<link rel="icon" type="image/png" sizes="32x32" href="1.jpeg">
-<link rel="icon" type="image/png" sizes="16x16" href="1.jpeg">
+<link rel="apple-touch-icon" sizes="180x180" href="11.jpeg">
+<link rel="icon" type="image/png" sizes="32x32" href="11.jpeg">
+<link rel="icon" type="image/png" sizes="16x16" href="11.jpeg">
 
 
 <!-- Animate.css -->
@@ -1970,10 +1970,10 @@ var context = new AudioContext();
                         </div>
                     </div>
                                         <img id="ImageWelcomeInvitation"
-                        src="./1.jpeg" loading="lazy"
-                        style="border-width:0px;width:100%; height:100vh; object-fit: cover; object-position: 40% 70%; position:absolute; left:0; top:0; z-index:0;">
+                        src="./11.jpeg" loading="lazy"
+                        style="border-width:0px;width:100%; height:100vh; object-fit: cover; object-position: bottom; position:absolute; left:0; top:0; z-index:0;">
                     <div
-                        style="background: rgb(0 0 0 / 55%);; width:100%; height:100%; position:absolute; left: 0; top: 0; z-index:1;">
+                        style="background: rgb(0 0 0 / 40%);; width:100%; height:100%; position:absolute; left: 0; top: 0; z-index:1;">
                     </div>
                 </div>
             </div>
@@ -2305,8 +2305,8 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             <div class="row row-bottom-padded-md">
             <div class="col-12">
                 <!-- <ul id="fh5co-gallery-list">           
-                                        <li class="one-third lazy-background" data-aos=fade-left  data-bg="1.jpeg" style="width: 100%; margin: 5px;  background-position: 50% 70%;">
-                        <a                             href="1.jpeg" class="image-popup"
+                                        <li class="one-third lazy-background" data-aos=fade-left  data-bg="11.jpeg" style="width: 100%; margin: 5px;  background-position: 50% 70%;">
+                        <a                             href="11.jpeg" class="image-popup"
                         >
                             <div class="case-studies-summary">
                             </div>
@@ -2426,8 +2426,8 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
 <div class="dukungan-section">
     <h1 class="doa">doa & dukungan</h1>
     <h2 class="dukungan-title">Dengan hormat, kami mengundang Bapak/Ibu untuk memberikan dukungan melalui nomor rekening berikut:</h2>
-    <h3 class="dukungan-rekening">7315 0103 2765 539</h3>
-    <p class="nama_req">"BRI : SARLITA"</p>
+    <h3 class="dukungan-rekening">7686 0102 4503 502</h3>
+    <p class="nama_req">"BRI : Asrin"</p>
 </div>
         
 
@@ -2490,7 +2490,7 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
 
 <script>
 (() => {
-    const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzV8-ypX6D_lEVLO1KOrjuJujuVPOgR67gCbdFfjL5VEoy_DnltexIIfffyGV0Y3KM/exec';
+    const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwY6e0XoSanOJu0_z-P7pqcb5vDVrGprA38e2RRVfleNzAw12HBYU49kNtwCdo3w-bh/exec';
 
     function showCommentStatus(message, isError) {
         let status = document.getElementById('comment-status');
@@ -2499,71 +2499,82 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             status.id = 'comment-status';
             status.setAttribute('role', 'status');
             status.setAttribute('aria-live', 'polite');
-            status.style.cssText = 'font-size:12px; margin-top:12px;';
+            status.style.cssText = 'font-size:14px; margin:12px 0; padding:10px; color:#fff; background:#343a40; border-radius:6px; text-align:center;';
             document.getElementById('push_ucapan').insertAdjacentElement('afterend', status);
         }
-        status.style.color = isError ? '#b00020' : '#3b3b3b';
+        status.style.backgroundColor = isError ? '#b00020' : '#343a40';
         status.textContent = message;
     }
 
     window.loadUcapan = function() {
-        const callbackName = 'ucapanSheet_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
-        const script = document.createElement('script');
-        let finished = false;
-        const timeoutId = window.setTimeout(function() {
-            showCommentStatus('Ucapan belum dapat dimuat. Silakan coba lagi.', true);
-            cleanup();
-        }, 10000);
+        return new Promise(function(resolve, reject) {
+            const callbackName = 'ucapanSheet_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+            const script = document.createElement('script');
+            let finished = false;
+            const timeoutId = window.setTimeout(function() {
+                cleanup();
+                reject(new Error('Waktu tunggu untuk memuat ucapan habis.'));
+            }, 10000);
 
-        function cleanup() {
-            if (finished) return;
-            finished = true;
-            window.clearTimeout(timeoutId);
-            if (script.parentNode) script.parentNode.removeChild(script);
-            delete window[callbackName];
-        }
-
-        window[callbackName] = function(items) {
-            const comments = Array.isArray(items) ? items : [];
-            const $comments = comments.map(function(item) {
-                const hadir = item.kehadiran === 'Hadir' || String(item.ket_hadir) === '1'
-                    ? 'Hadir (' + (item.jumlah || '0') + ' orang)'
-                    : 'Tidak hadir';
-                return $('<div>').addClass('ucapan-lokal-item').css({
-                    padding: '12px',
-                    margin: '8px',
-                    borderBottom: '1px solid #ddd'
-                }).append(
-                    $('<strong>').text(item.nama || 'Tamu'),
-                    $('<small>').css({ display: 'block', color: '#777' })
-                        .text(hadir + (item.waktu ? ' - ' + item.waktu : '')),
-                    $('<p>').css({ margin: '6px 0 0', whiteSpace: 'pre-wrap' })
-                        .text(item.ucapan || 'Tidak ada ucapan.')
-                );
-            });
-            $('#box_ucapan').empty().append($comments);
-            if (!comments.length) {
-                $('#box_ucapan').text('Belum ada ucapan. Jadilah yang pertama menulis.');
+            function cleanup() {
+                if (finished) return;
+                finished = true;
+                window.clearTimeout(timeoutId);
+                if (script.parentNode) script.parentNode.removeChild(script);
+                delete window[callbackName];
             }
-            showCommentStatus('', false);
-            cleanup();
-        };
 
-        script.onerror = function() {
-            showCommentStatus('Ucapan belum dapat dimuat. Periksa koneksi lalu coba lagi.', true);
-            cleanup();
-        };
-        script.src = GOOGLE_SHEETS_WEB_APP_URL + '?callback=' + encodeURIComponent(callbackName);
-        document.head.appendChild(script);
+            window[callbackName] = function(items) {
+                const comments = Array.isArray(items) ? items : [];
+                const commentContainer = document.getElementById('box_ucapan');
+                commentContainer.replaceChildren();
+                comments.forEach(function(item) {
+                    const statusHadir = String(item.ket_hadir || item.kehadiran || '').trim().toLowerCase();
+                    const hadir = statusHadir === '1' || statusHadir === 'hadir' || statusHadir === 'true'
+                        ? 'Hadir (' + (item.jumlah || '0') + ' orang)'
+                        : 'Tidak hadir';
+                    const comment = document.createElement('div');
+                    comment.className = 'ucapan-lokal-item';
+                    comment.style.cssText = 'padding:12px;margin:8px;border-bottom:1px solid #ddd;';
+
+                    const name = document.createElement('strong');
+                    name.textContent = item.nama || 'Tamu';
+                    comment.appendChild(name);
+
+                    const attendance = document.createElement('small');
+                    attendance.style.cssText = 'display:block;color:#777;';
+                    attendance.textContent = hadir + (item.waktu ? ' - ' + item.waktu : '');
+                    comment.appendChild(attendance);
+
+                    const message = document.createElement('p');
+                    message.style.cssText = 'margin:6px 0 0;white-space:pre-wrap;';
+                    message.textContent = item.ucapan || 'Tidak ada ucapan.';
+                    comment.appendChild(message);
+                    commentContainer.appendChild(comment);
+                });
+                if (!comments.length) {
+                    commentContainer.textContent = 'Belum ada ucapan. Jadilah yang pertama menulis.';
+                }
+                cleanup();
+                resolve(comments);
+            };
+
+            script.onerror = function() {
+                cleanup();
+                reject(new Error('Ucapan belum dapat dimuat. Periksa koneksi internet.'));
+            };
+            script.src = GOOGLE_SHEETS_WEB_APP_URL + '?callback=' + encodeURIComponent(callbackName);
+            document.head.appendChild(script);
+        });
     };
 
-    $(document).on('submit', '#push_ucapan', function(event) {
+    document.getElementById('push_ucapan').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const nama = $('#konfir_nama_2').val().trim();
-        const ucapan = $('#ucapan_2').val().trim();
-        const ketHadir = $('#hadir_id').val();
-        const jumlah = $('#jumlah_datang_id').val();
+        const nama = document.getElementById('konfir_nama_2').value.trim();
+        const ucapan = document.getElementById('ucapan_2').value.trim();
+        const ketHadir = document.getElementById('hadir_id').value;
+        const jumlah = document.getElementById('jumlah_datang_id').value;
         if (!nama || ketHadir === '') {
             this.reportValidity();
             return;
@@ -2575,8 +2586,9 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             ket_hadir: ketHadir,
             jumlah: ketHadir === '1' ? jumlah : '0'
         };
-        const $button = $('#push_ucapan button[type="submit"]');
-        $button.prop('disabled', true).text('Mengirim...');
+        const button = this.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = 'Mengirim...';
         showCommentStatus('Mengirim ucapan...', false);
 
         fetch(GOOGLE_SHEETS_WEB_APP_URL, {
@@ -2584,26 +2596,50 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
             body: JSON.stringify(dataUcapan)
-        }).then(function() {
-            localStorage.setItem('isiUcapan', true);
-            localStorage.setItem('ucapanForm-9079-Bapak+Budi', true);
-            $('#ucapan_2').val('');
-            $('#hadir_id').val('').trigger('change');
-            showCommentStatus('Permintaan ucapan telah dikirim. Jika belum muncul, muat ulang halaman sebentar lagi.', false);
-            isUserFilledKehadiranForm();
-            window.setTimeout(window.loadUcapan, 1500);
+        }).then(async function() {
+            showCommentStatus('Memeriksa apakah ucapan sudah tersimpan...', false);
+            for (let attempt = 0; attempt < 5; attempt++) {
+                await new Promise(function(resolve) {
+                    window.setTimeout(resolve, attempt === 0 ? 1000 : 2000);
+                });
+                const comments = await window.loadUcapan();
+                const expectedAttendance = ketHadir === '1' ? 'Hadir' : 'Tidak hadir';
+                const saved = comments.some(function(item) {
+                    const savedAttendance = String(item.ket_hadir || item.kehadiran || '').trim();
+                    return String(item.nama || '').trim() === nama
+                        && String(item.ucapan || '').trim() === dataUcapan.ucapan
+                        && (savedAttendance === expectedAttendance || savedAttendance === ketHadir);
+                });
+                if (saved) {
+                    localStorage.setItem('isiUcapan', true);
+                    document.getElementById('ucapan_2').value = '';
+                    const attendanceSelect = document.getElementById('hadir_id');
+                    attendanceSelect.value = '';
+                    attendanceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+                    showCommentStatus('Ucapan berhasil dikirim dan sudah tampil.', false);
+                    return;
+                }
+            }
+            showCommentStatus('Ucapan belum ditemukan di daftar. Isian tetap tersimpan di formulir; periksa Apps Script atau coba lagi.', true);
         }).catch(function(error) {
-            showCommentStatus('Pengiriman gagal. Periksa koneksi internet lalu coba lagi.', true);
+            showCommentStatus('Ucapan belum dapat dikonfirmasi. Isian tetap tersimpan di formulir; periksa koneksi dan coba lagi.', true);
             console.error('Gagal mengirim ucapan ke Google Sheets:', error);
         }).finally(function() {
-            $button.prop('disabled', false).text('Kirim');
+            button.disabled = false;
+            button.textContent = 'Kirim';
         });
     });
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', window.loadUcapan, { once: true });
+        document.addEventListener('DOMContentLoaded', function() {
+            window.loadUcapan().catch(function(error) {
+                console.error('Gagal memuat ucapan:', error);
+            });
+        }, { once: true });
     } else {
-        window.loadUcapan();
+        window.loadUcapan().catch(function(error) {
+            console.error('Gagal memuat ucapan:', error);
+        });
     }
 })();
 </script>
@@ -3526,7 +3562,7 @@ $('#auto_scroll').on('click', function(e) {
     isUserFilledPopupKehadiranForm()
 
     function isUserFilledKehadiranForm(){
-      const key = 'ucapanForm-9079-' + "Bapak+Budi"
+      const key = 'ucapanForm-9079-v2-' + "Bapak+Budi"
       const isFilled = localStorage.getItem(key) ? true : false
       if(isFilled){
         $('#formContainer2').remove()
@@ -3542,7 +3578,7 @@ $('#auto_scroll').on('click', function(e) {
 
     function resetKehadiran(){
       const ucapanPopupKey = 'ucapanPopup-9079-' + "Bapak+Budi"
-      const ucapanFormKey = 'ucapanForm-9079-' + "Bapak+Budi"
+      const ucapanFormKey = 'ucapanForm-9079-v2-' + "Bapak+Budi"
       localStorage.removeItem(ucapanPopupKey)
       localStorage.removeItem(ucapanFormKey)
       location.reload()
