@@ -2529,7 +2529,8 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
                 const commentContainer = document.getElementById('box_ucapan');
                 commentContainer.replaceChildren();
                 comments.forEach(function(item) {
-                    const hadir = item.kehadiran === 'Hadir' || String(item.ket_hadir) === '1'
+                    const statusHadir = String(item.ket_hadir || item.kehadiran || '').trim().toLowerCase();
+                    const hadir = statusHadir === '1' || statusHadir === 'hadir' || statusHadir === 'true'
                         ? 'Hadir (' + (item.jumlah || '0') + ' orang)'
                         : 'Tidak hadir';
                     const comment = document.createElement('div');
