@@ -2526,25 +2526,33 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
 
             window[callbackName] = function(items) {
                 const comments = Array.isArray(items) ? items : [];
-                const $comments = comments.map(function(item) {
+                const commentContainer = document.getElementById('box_ucapan');
+                commentContainer.replaceChildren();
+                comments.forEach(function(item) {
                     const hadir = item.kehadiran === 'Hadir' || String(item.ket_hadir) === '1'
                         ? 'Hadir (' + (item.jumlah || '0') + ' orang)'
                         : 'Tidak hadir';
-                    return $('<div>').addClass('ucapan-lokal-item').css({
-                        padding: '12px',
-                        margin: '8px',
-                        borderBottom: '1px solid #ddd'
-                    }).append(
-                        $('<strong>').text(item.nama || 'Tamu'),
-                        $('<small>').css({ display: 'block', color: '#777' })
-                            .text(hadir + (item.waktu ? ' - ' + item.waktu : '')),
-                        $('<p>').css({ margin: '6px 0 0', whiteSpace: 'pre-wrap' })
-                            .text(item.ucapan || 'Tidak ada ucapan.')
-                    );
+                    const comment = document.createElement('div');
+                    comment.className = 'ucapan-lokal-item';
+                    comment.style.cssText = 'padding:12px;margin:8px;border-bottom:1px solid #ddd;';
+
+                    const name = document.createElement('strong');
+                    name.textContent = item.nama || 'Tamu';
+                    comment.appendChild(name);
+
+                    const attendance = document.createElement('small');
+                    attendance.style.cssText = 'display:block;color:#777;';
+                    attendance.textContent = hadir + (item.waktu ? ' - ' + item.waktu : '');
+                    comment.appendChild(attendance);
+
+                    const message = document.createElement('p');
+                    message.style.cssText = 'margin:6px 0 0;white-space:pre-wrap;';
+                    message.textContent = item.ucapan || 'Tidak ada ucapan.';
+                    comment.appendChild(message);
+                    commentContainer.appendChild(comment);
                 });
-                $('#box_ucapan').empty().append($comments);
                 if (!comments.length) {
-                    $('#box_ucapan').text('Belum ada ucapan. Jadilah yang pertama menulis.');
+                    commentContainer.textContent = 'Belum ada ucapan. Jadilah yang pertama menulis.';
                 }
                 cleanup();
                 resolve(comments);
@@ -2559,13 +2567,13 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
         });
     };
 
-    $(document).on('submit', '#push_ucapan', function(event) {
+    document.getElementById('push_ucapan').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const nama = $('#konfir_nama_2').val().trim();
-        const ucapan = $('#ucapan_2').val().trim();
-        const ketHadir = $('#hadir_id').val();
-        const jumlah = $('#jumlah_datang_id').val();
+        const nama = document.getElementById('konfir_nama_2').value.trim();
+        const ucapan = document.getElementById('ucapan_2').value.trim();
+        const ketHadir = document.getElementById('hadir_id').value;
+        const jumlah = document.getElementById('jumlah_datang_id').value;
         if (!nama || ketHadir === '') {
             this.reportValidity();
             return;
@@ -2577,8 +2585,9 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             ket_hadir: ketHadir,
             jumlah: ketHadir === '1' ? jumlah : '0'
         };
-        const $button = $('#push_ucapan button[type="submit"]');
-        $button.prop('disabled', true).text('Mengirim...');
+        const button = this.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = 'Mengirim...';
         showCommentStatus('Mengirim ucapan...', false);
 
         fetch(GOOGLE_SHEETS_WEB_APP_URL, {
@@ -2602,8 +2611,10 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
                 });
                 if (saved) {
                     localStorage.setItem('isiUcapan', true);
-                    $('#ucapan_2').val('');
-                    $('#hadir_id').val('').trigger('change');
+                    document.getElementById('ucapan_2').value = '';
+                    const attendanceSelect = document.getElementById('hadir_id');
+                    attendanceSelect.value = '';
+                    attendanceSelect.dispatchEvent(new Event('change', { bubbles: true }));
                     showCommentStatus('Ucapan berhasil dikirim dan sudah tampil.', false);
                     return;
                 }
@@ -2613,7 +2624,8 @@ Beralamat di Desa Pongkowulu, Kec. Kambowa, Kab. Buton Utara <br> </p>
             showCommentStatus('Ucapan belum dapat dikonfirmasi. Isian tetap tersimpan di formulir; periksa koneksi dan coba lagi.', true);
             console.error('Gagal mengirim ucapan ke Google Sheets:', error);
         }).finally(function() {
-            $button.prop('disabled', false).text('Kirim');
+            button.disabled = false;
+            button.textContent = 'Kirim';
         });
     });
 
